@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer{
-    @font-face {
-        font-family: '"Press Start 2P"';
-        src: url('../public/font/PressStart2P-Regular.ttf');
-    }
+@layer {
+  @font-face {
+    font-family: '"Press Start 2P"';
+    src: url("../public/font/PressStart2P-Regular.ttf");
+  }
 }

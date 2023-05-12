@@ -1,28 +1,29 @@
-import { useState } from 'react';
-import Button from './components/Button';
-import Table from './components/Table';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Players from "./pages/Players";
+import NoPage from "./pages/NoPage";
 import "../dist/output.css";
 
+//Background stylings applied as well as the react router
 function App() {
-  const [show, setShow] = useState(false)
-
-  const revealTable = (e: React.MouseEvent<HTMLElement>) =>{
-    setShow(!show)
-  }
-
   return (
     <>
-      <div className='flex h-screen bg-c64light-purple'>
-        <div className='flex-grow text-center h-5/6 m-5 bg-c64purple'>
-          <p className='mt-5 font-press-start text-3xl text-c64light-purple'>****c64 Poker Stats****</p>
-          <Button clickFunc={revealTable} text="Press to Reveal" />
-          <div className={show ? 'flex items-center justify-center': 'hidden' }>
-            <Table />
+      <div className="flex-grow  bg-c64light-purple p-5 h-screen">
+        <Router>
+          <div className="bg-c64purple h-[90%] m-10 p-5 text-center">
+            <h1 className="m-2 text-3xl">****c64 PokerStats****</h1>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/players" element={<Players />} />
+              <Route path="*" element={<NoPage />} />
+            </Routes>
           </div>
-        </div>
+        </Router>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
