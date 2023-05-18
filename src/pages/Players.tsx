@@ -3,3 +3,4 @@ export default function Players(){
         <h1 className="m-5">Players</h1>
     );
 }
+
